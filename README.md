@@ -1,4 +1,265 @@
-# 🗺️ Data Engineering — 26-Week Roadmap
+# Data Engineering — 24-Week Roadmap
+
+> A complete, week-by-week guide from SQL foundations to portfolio-ready interviews.
+> Designed for 5 hours/week, Monday through Saturday, with Sunday off.
+
+---
+
+## How to Read This Roadmap
+
+Each week follows a fixed rhythm:
+
+```mermaid
+flowchart LR
+    Mon[Mon: Concepts] --> Tue[Tue: Core Skill]
+    Tue --> Wed[Wed: Deep Dive]
+    Wed --> Thu[Thu: Advanced Pattern]
+    Thu --> Fri[Fri: Integration]
+    Fri --> Sat[Sat: **Prove It**]
+    style Sat fill:#fef3c7,stroke:#f59e0b,stroke-width:2px
+```
+
+**Saturday is the capstone session** — build something portfolio-worthy, whiteboard it for a peer, or take a timed mock. No passive reading.
+
+---
+
+## Phase Overview
+
+```mermaid
+flowchart TD
+    subgraph M1["M1 Foundations (Weeks 1-4)"]
+        W1[Week 1: Linux]
+        W2[Week 2: Git]
+        W3[Week 3: SQL Foundations]
+        W4[Week 4: SQL Intermediate]
+        W1 --> W2 --> W3 --> W4
+    end
+
+    subgraph M2["M2 Python for Data (Weeks 5-8)"]
+        W5[Week 5: pandas Core]
+        W6[Week 6: pandas + APIs]
+        W7[Week 7: Files & Formats]
+        W8[Week 8: Postgres]
+        W5 --> W6 --> W7 --> W8
+    end
+
+    subgraph M3["M3 Modeling + AWS (Weeks 9-12)"]
+        W9[Week 9: Data Modeling]
+        W10[Week 10: S3 + Lakehouse]
+        W11[Week 11: Glue + Athena]
+        W12[Week 12: Mini-Project 1]
+        W9 --> W10 --> W11 --> W12
+    end
+
+    subgraph M4["M4 Pipelines (Weeks 13-16)"]
+        W13[Week 13: Docker]
+        W14[Week 14: Airflow]
+        W15[Week 15: dbt]
+        W16[Week 16: Mini-Project 2]
+        W13 --> W14 --> W15 --> W16
+    end
+
+    subgraph M5["M5 Scale (Weeks 17-20)"]
+        W17[Week 17: Spark Core]
+        W18[Week 18: Spark SQL]
+        W19[Week 19: Kafka]
+        W20[Week 20: Streaming Build]
+        W17 --> W18 --> W19 --> W20
+    end
+
+    subgraph M6["M6 Ship + Hire (Weeks 21-24)"]
+        W21[Week 21: CI + Terraform]
+        W22[Week 22: Security]
+        W23[Week 23: Interview Prep I]
+        W24[Week 24: Interview Prep II]
+        W21 --> W22 --> W23 --> W24
+    end
+
+    M1 --> M2 --> M3 --> M4 --> M5 --> M6
+
+    style M1 fill:#e0e7ff,stroke:#3730a3
+    style M2 fill:#dcfce7,stroke:#166534
+    style M3 fill:#fef3c7,stroke:#92400e
+    style M4 fill:#fce7f3,stroke:#9d174d
+    style M5 fill:#ffe4e6,stroke:#9f1239
+    style M6 fill:#f3e8ff,stroke:#6b21a8
+```
+
+| Phase | Label | Weeks | Focus Question |
+|-------|-------|-------|----------------|
+| 1 | **M1 · Foundations** | 1–4 | How do I store, query, and wrangle data? |
+| 2 | **M2 · Python for Data** | 5–8 | How do I wrangle data with Python? |
+| 3 | **M3 · Modeling + AWS** | 9–12 | How do I structure data for analytics at scale? |
+| 4 | **M4 · Pipelines** | 13–16 | How do I orchestrate reliable pipelines? |
+| 5 | **M5 · Scale** | 17–20 | How do I process millions of records without melting? |
+| 6 | **M6 · Ship + Hire** | 21–24 | How do I ship pipelines that never lie and get hired? |
+
+---
+
+## Timeline (Gantt View)
+
+```mermaid
+gantt
+    title 24-Week Roadmap Timeline
+    dateFormat  W
+    axisFormat  %W
+
+    section M1 Foundations
+    Linux slice           :w1, 1, 1
+    Git slice             :w2, after w1, 1
+    SQL Foundations       :w3, after w2, 1
+    SQL Intermediate      :w4, after w3, 1
+
+    section M2 Python for Data
+    pandas Core           :w5, after w4, 1
+    pandas + APIs         :w6, after w5, 1
+    Files & Formats       :w7, after w6, 1
+    Postgres              :w8, after w7, 1
+
+    section M3 Modeling + AWS
+    Data Modeling         :w9, after w8, 1
+    S3 + Lakehouse        :w10, after w9, 1
+    Glue + Athena         :w11, after w10, 1
+    Mini-Project 1        :crit, w12, after w11, 1
+
+    section M4 Pipelines
+    Docker                :w13, after w12, 1
+    Airflow               :w14, after w13, 1
+    dbt                   :w15, after w14, 1
+    Mini-Project 2        :crit, w16, after w15, 1
+
+    section M5 Scale
+    Spark Core            :w17, after w16, 1
+    Spark SQL             :w18, after w17, 1
+    Kafka                 :w19, after w18, 1
+    Streaming Build       :w20, after w19, 1
+
+    section M6 Ship + Hire
+    CI + Terraform        :w21, after w20, 1
+    Security              :w22, after w21, 1
+    Interview Prep I      :w23, after w22, 1
+    Interview Prep II     :crit, w24, after w23, 1
+```
+
+---
+
+## Master Schedule
+
+| Wk | Phase | Core Topic | Subtopics | Deliverable | Mon | Tue | Wed | Thu | Fri | Weekend | Status | Mon | Tue | Wed | Thu | Fri |
+|----|-------|------------|-----------|-------------|-----|-----|-----|-----|-----|---------|--------|-----|-----|-----|-----|-----|
+| 1 | M1 Foundations | Linux slice (thin, on purpose) | pwd/ls/cd, Tab-complete, history<br>File ops: cp/mv/rm -i, no-trash discipline<br>Reading files: cat/less/tail -f, pipes, `>` vs `>>`, stdout vs stderr<br>Permissions: rwx triplets, one-command sudo<br>Must-know: pwd, ls, cd, mkdir, touch, cp, mv, rm -i, cat, less, head, tail -f, `\|`, `>`, `>>`, chmod, sudo, man, history | Practice folder (~/practice) built + explain one `ls -l` line | Tab + history drills (45 min) | File ops in ~/practice | Pipes + redirection lab | Read rwx, borrow sudo once | Command sprint + cross-quiz | Buffer | Not Started | ✓ | ✓ | ✓ | ✓ | ✓ |
+| 2 | M1 Foundations | Git slice (thin, on purpose) | clone / commit / push<br>Branches + pull requests<br>Merge conflicts: break one, fix it<br>.gitignore: never commit CSVs or keys | Shared repo; each opened a PR and resolved one conflict | init/clone/commit/push | Branching | Open + review PRs | Conflict drill | Tidy repo, agree rules | Buffer | Not Started | | | | | |
+| 3 | M1 Foundations | SQL Foundations | SELECT / WHERE / ORDER BY / LIMIT<br>JOINs: INNER + LEFT (interview #1)<br>GROUP BY + HAVING<br>NULL behavior (silent bug factory) | Postgres in Docker + 20 solved queries | Setup + SELECT | WHERE / ORDER / LIMIT | JOIN day | GROUP BY + HAVING + NULLs | 20-query set | Buffer | Not Started | | | | | |
+| 4 | M1 Foundations | SQL Intermediate | Subqueries vs CTEs (write CTEs)<br>Windows: ROW_NUMBER, RANK, LAG/LEAD, running totals<br>Date math<br>CASE WHEN patterns | Latest-record-per-user 3 ways + sessionization query | CTEs | Windows I | Windows II | Dates + CASE | Challenge set | Buffer | Not Started | | | | | |
+| 5 | M2 Python for Data | pandas Core | DataFrames / Series<br>read_csv / read_parquet + dtypes (why ints became floats)<br>select / filter / assign<br>groupby-agg (SQL GROUP BY, translated) | Dirty 100k-row CSV fully cleaned | Setup + frames | IO + dtypes | Select / filter | Groupby | Full clean | Buffer | Not Started | | | | | |
+| 6 | M2 Python for Data | pandas + APIs | Merges (the JOIN analog)<br>Missing data, handled deliberately<br>requests + JSON<br>Pagination, rate limits, .env keys | Paginated API fetch → parquet, keys outside code | Merges | Null strategy | requests + JSON | Pagination + keys | End-to-end fetch | Buffer | Not Started | | | | | |
+| 7 | M2 Python for Data | Files, Formats, Quality | CSV vs JSON vs Parquet (columnar wins)<br>pyarrow + compression<br>Asserts: null counts, ranges, dupes<br>Logging over print | Validated parquet + quality report; script fails loudly on bad data | Formats | pyarrow | Assert pack | Logging + fail-loud | Quality report | Buffer | Not Started | | | | | |
+| 8 | M2 Python for Data | Postgres Properly | Install via Docker<br>Schemas, types, constraints<br>Indexes: write cost<br>Transactions: BEGIN/COMMIT<br>Read ONE EXPLAIN plan (thin) | 3-table indexed schema; one broken + fixed transaction | Install + schema | Types + constraints | Indexes | Transactions | EXPLAIN + break-fix | Buffer | Not Started | | | | | |
+| 9 | M3 Modeling + AWS | Data Modeling | OLTP vs OLAP<br>Star vs snowflake<br>Facts vs dimensions<br>SCD Type 1 vs 2 (interview favorite) | Star schema built + defended SCD-2 choice | OLTP / OLAP | Star / snowflake | Facts / dims | SCD day | Build + defend | Buffer | Not Started | | | | | |
+| 10 | M3 Modeling + AWS | S3 + Lakehouse Thinking | Warehouse vs lake vs lakehouse (one use-case each)<br>Buckets, prefixes, year=/month= partitions<br>Parquet partitioning + predicate pushdown<br>Lifecycle rules | Partitioned S3 dataset + cheap-vs-pricey query comparison | Concepts | Buckets + prefixes | Partitioning | Pushdown demo | Cost compare | Buffer | Not Started | | | | | |
+| 11 | M3 Modeling + AWS | Glue + Athena | Glue crawlers + Data Catalog (metadata)<br>Glue ETL jobs (Spark underneath)<br>Athena: SQL over S3 | Raw CSV in S3 → queryable table, zero servers | Catalog + crawler | ETL job | Athena I | Athena II | End-to-end | Buffer | Not Started | | | | | |
+| 12 | M3 Modeling + AWS | **MINI-PROJECT 1** | Scope Monday, no creep<br>API → S3 → Glue → Athena<br>README someone else can rerun | Portfolio piece 1 merged + README peer-tested | Design + scope | Ingest to S3 | Catalog it | Query + writeup | Peer rerun test | **Sat: demo to each other** | Not Started | | | | | |
+| 13 | M4 Pipelines | Docker (thin, purposeful) | Images vs containers<br>Dockerfile for Python script<br>Volumes (why data vanished)<br>Compose for Postgres | Week-7 script containerized; compose up runs pipeline | Images / containers | Dockerfile | Volumes | Compose | Containerize script | Buffer | Not Started | | | | | |
+| 14 | M4 Pipelines | Airflow: First DAG | DAGs / tasks / operators<br>Cron scheduling<br>Retries + backfill (the actual job)<br>XCom minimalism: pass paths, not data | Daily DAG in Docker; survived mid-run kill via retry | Setup + DAG anatomy | Operators + cron | Retries + backfill | XComs | Kill test | Buffer | Not Started | | | | | |
+| 15 | M4 Pipelines | dbt | Models as SELECTs<br>refs + sources (lineage for free)<br>Tests: unique, not_null, relationships<br>Docs | Models with tests that fail on purpose, then pass | Models | refs + sources | Tests | Docs | Fail-then-pass | Buffer | Not Started | | | | | |
+| 16 | M4 Pipelines | **MINI-PROJECT 2** | Airflow → S3 → dbt models → tests, all in Compose<br>README + architecture you can whiteboard blind | Portfolio piece 2; whiteboard from memory | Sketch architecture | Build (ingest) | Build (dbt) | Tests + README | Whiteboard drill | **Sat: demo to each other** | Not Started | | | | | |
+| 17 | M5 Scale | Spark Core | Memory wall (why pandas breaks)<br>DataFrames, not RDDs<br>Lazy transformations vs actions<br>Reading stages in Spark UI | Pandas job rerun at 10x data + UI screenshot explained | Setup + why Spark | DataFrames | Lazy vs actions | UI reading | 10x run | Buffer | Not Started | | | | | |
+| 18 | M5 Scale | Spark SQL + Joins at Scale | Spark SQL over DataFrames<br>Broadcast vs shuffle joins (money setting)<br>Partitioning + writes<br>Cache discipline (and OOM when not) | One slow stage diagnosed; skew identified, broadcast fix applied | Spark SQL | Join mechanics | Broadcast vs shuffle | Partition + cache | Slow-stage diagnosis | Buffer | Not Started | | | | | |
+| 19 | M5 Scale | Streaming + Kafka (thin) | Batch vs stream vs micro-batch<br>Topics, partitions, offsets — just enough<br>Idempotency as practice (exactly-once as idea)<br>Kafka vs SQS (managed laziness wins) | 10k events produced + consumed; topic replayed, offsets explained | Concepts | Kafka in Docker | Produce | Consume + groups | Replay + offsets | Buffer | Not Started | | | | | |
+| 20 | M5 Scale | Streaming Mini-Build (STRETCH) | Generator → Kafka → Structured Streaming → S3 parquet<br>MUST-PASS: kill consumer, restart, lose nothing<br>DEFERRED: exactly-once deep-dive | Lossless restart demo (stretch: full pipeline) | Design | Generator | Streaming query | S3 sink | Kill-restart test | **Sat: demo or defer** | Not Started | | | | | |
+| 21 | M6 Ship + Hire | CI + Terraform (thin) — pytest DROPPED | dbt-test recap (testing mindset)<br>GitHub Actions: tests on push<br>Terraform: provider/resource/state in one afternoon; one bucket as code<br>NOTE: pytest dropped — revisit only if JD demands | Green check on PR + S3 bucket created from code | Test recap | Actions pipeline | Terraform I | Bucket as code | Green PR | Buffer | Not Started | | | | | |
+| 22 | M6 Ship + Hire | Security + Governance Literacy | authN vs authZ<br>IAM roles over keys<br>PII masking basics<br>GDPR-shape thinking (deletion, retention) | 5-min talk per topic + one masked dataset | authN / authZ | IAM roles | Masking lab | GDPR-shape | Teach-back | Buffer | Not Started | | | | | |
+| 23 | M6 Ship + Hire | Interview Prep I: SQL + Python | JOIN / window / dedup pattern drills<br>pandas groupby-translate drills<br>Project #2 as problem → choices → tradeoffs | Medium SQL solved in <25 min each, peer-graded | JOIN drills | Window drills | pandas translate | Project story | Timed mocks | Buffer | Not Started | | | | | |
+| 24 | M6 Ship + Hire | Interview Prep II: Design + Exit | Design-a-pipeline out loud, with numbers<br>Spark/UI story + Kafka replay story<br>Resume: 3 bullets per project (scale, tools, outcome)<br>AI bridge: Python + SQL + Spark + AWS carry over | Recorded whiteboard of project #2 + AI next-steps | Design reps | Story reps | Resume | Mock swaps | Record + next steps | **Done. Demo night.** | Not Started | | | | | |
+
+---
+
+## Skills Dependency Graph
+
+```mermaid
+flowchart TD
+    Linux[Linux CLI] --> Git[Git]
+    Git --> SQL[SQL Foundations]
+    SQL --> SQLAdv[SQL Intermediate]
+    SQLAdv --> Pandas[pandas Core]
+    Pandas --> PandasAPI[pandas + APIs]
+    PandasAPI --> Formats[Files & Formats]
+    Formats --> Postgres[Postgres]
+    
+    Postgres --> Modeling[Data Modeling]
+    Modeling --> S3[S3 + Lakehouse]
+    S3 --> Glue[Glue + Athena]
+    Glue --> Proj1[Mini-Project 1]
+    
+    Proj1 --> Docker[Docker]
+    Docker --> Airflow[Airflow]
+    Airflow --> DBT[dbt]
+    DBT --> Proj2[Mini-Project 2]
+    
+    Proj2 --> Spark[Spark Core]
+    Spark --> SparkSQL[Spark SQL]
+    SparkSQL --> Kafka[Kafka]
+    Kafka --> Streaming[Streaming Build]
+    
+    Streaming --> CICD[CI + Terraform]
+    CICD --> Security[Security]
+    Security --> Prep1[Interview Prep I]
+    Prep1 --> Prep2[Interview Prep II]
+    
+    style Proj1 fill:#fef3c7,stroke:#92400e,stroke-width:2px
+    style Proj2 fill:#fef3c7,stroke:#92400e,stroke-width:2px
+    style Prep2 fill:#f3e8ff,stroke:#6b21a8,stroke-width:2px
+```
+
+---
+
+## Weekly Rhythm Cheat Sheet
+
+```mermaid
+flowchart TB
+    subgraph Week["Weekly Cycle"]
+        Mon[Mon: Learn concepts<br/>read docs, draw]
+        Tue[Tue: Core skill<br/>hands-on lab]
+        Wed[Wed: Deep dive<br/>read, trace]
+        Thu[Thu: Advanced pattern<br/>build with it]
+        Fri[Fri: Integration<br/>connect two things]
+        Sat[Sat: **Prove it**<br/>build, demo, test]
+        Sun[Sun: **REST**<br/>protect it]
+    end
+
+    Mon --> Tue --> Wed --> Thu --> Fri --> Sat --> Sun
+    style Sat fill:#fef3c7,stroke:#f59e0b,stroke-width:2px
+    style Sun fill:#fef2f2,stroke:#dc2626,stroke-width:2px
+```
+
+---
+
+## Rules of the Road
+
+1. **5 hours/week, Mon–Sat.** Sunday is sacred. Burnout kills more careers than slow progress.
+2. **Friday rule: demo-or-it-didn't-happen.** If you can't screen-share your deliverable, it didn't happen.
+3. **Status: `Not Started` → `In Progress` → `Done`.** Flip to Done only when the deliverable exists — not when reading finished.
+4. **Owner: who drove this week.** Swap driver/navigator every 45 minutes.
+5. **If stuck > 30 minutes on a concept**, move to the next day and come back later. Momentum matters more than perfection.
+
+---
+
+## What's Covered vs What's Not
+
+**In scope:**
+SQL → Pandas → dbt → Spark → Airflow → Kafka → Docker → Streaming → System Design → Interview Prep
+
+**Explicitly cut (with reasons):**
+- Redshift deep-admin — needs AWS account; Athena + Postgres concepts transfer
+- boto3 / DuckDB / SQLAlchemy hands-on — needs accounts or engines not in-page
+- Kubernetes / EKS / GKE — Docker Compose is enough to get hired
+- Luigi / Prefect — Airflow is the interview answer
+- MLOps / ML math — comes after this plan
+- pytest suites — dbt tests carry the testing mindset (per plan)
+
+---
+
+*Source: `data-engineer-24-week-plan.xlsx` · 24 weeks · Pair-based*# 🗺️ Data Engineering — 26-Week Roadmap
 
 > A complete, week-by-week guide from SQL foundations to portfolio-ready interviews.
 > Designed for 5 hours/week, Monday through Saturday, with Sunday off.
